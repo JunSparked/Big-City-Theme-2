@@ -9,7 +9,7 @@
 		$cat = get_queried_object();
 		$title = $cat->name;
 		$acfID = $cat->taxonomy.'_'.$cat->term_id;
-		$banner = get_field('banner',$acfID);
+		//$banner = get_field('banner',$acfID);
 		//$banner = $banner['url']; // if ACF image field returns array
 	}else{
 		// else its a page, single, etc

@@ -77,3 +77,55 @@ function chelseah_admin_wysiwyg_styles() {
 }
 add_action( 'admin_init', 'chelseah_admin_wysiwyg_styles' );
 */
+/*
+* Creating a function to create our CPT
+*/
+ 
+function custom_post_type() {
+
+        $labels = array(
+            'name'                => _x( 'News', 'Post Type General Name', 'chelseah' ),
+            'singular_name'       => _x( 'New', 'Post Type Singular Name', 'chelseah' ),
+            'menu_name'           => __( 'News', 'chelseah' ),
+            'parent_item_colon'   => __( 'Parent News', 'chelseah' ),
+            'all_items'           => __( 'All News', 'chelseah' ),
+            'view_item'           => __( 'View News', 'chelseah' ),
+            'add_new_item'        => __( 'Add New News', 'chelseah' ),
+            'add_new'             => __( 'Add New', 'chelseah' ),
+            'edit_item'           => __( 'Edit News', 'chelseah' ),
+            'update_item'         => __( 'Update News', 'chelseah' ),
+            'search_items'        => __( 'Search News', 'chelseah' ),
+            'not_found'           => __( 'Not Found', 'chelseah' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'chelseah' ),
+        );
+         
+        $args = array(
+            'label'               => __( 'news', 'chelseah' ),
+            'description'         => __( 'News Artcle', 'chelseah' ),
+            'labels'              => $labels,
+         
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'comments', 'revisions', 'custom-fields','page-attributes', 'thumbnail', 'post-formats', ),
+         
+            'taxonomies'          => array( 'genres','post_tag','category', ),
+          
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+     
+        );
+         
+        register_post_type( 'news', $args );
+        add_theme_support( 'post-thumbnails', array( 'post', 'news' ) );
+    }
+     
+    add_action( 'init', 'custom_post_type', 0 );

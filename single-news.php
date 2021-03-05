@@ -1,13 +1,20 @@
 <?php 
 /*
-Template Name: Page News
+Template Name: News
 */
 get_header(); ?>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <hr class="news-hr">
             <h1><?php echo the_title(); ?></h1>
+            <p><?php echo get_the_date( 'F j, Y' ); ?></p>
+            <?php echo the_post_thumbnail( 'full', array( 'class' => 'news-featured-image' )); ?>
+        </div>
+        
+        <div class="col-md-8 my-5">
+            <?php the_content(); ?>
         </div>
 
         <div class="col-md-4 my-5">
@@ -48,9 +55,13 @@ get_header(); ?>
 
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <h3>Related Articles</h3>
+        </div>
         <?php
         $args = array(
             'post_type' => 'news',
+            'posts_per_page' => '3',
         );
         $the_query = new WP_Query( $args );
         if ( $the_query->have_posts() ) {
