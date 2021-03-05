@@ -1,7 +1,7 @@
 <?php
 
 // add css and scripts
-function bigcity_add_css_scripts() {
+function chelseah_add_css_scripts() {
 	// css
 	wp_enqueue_style( 'main', get_template_directory_uri().'/css/main.css');
 
@@ -9,12 +9,10 @@ function bigcity_add_css_scripts() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri().'/js/bootstrap.bundle.min.js', array(), '', true );
 	wp_enqueue_script( 'main', get_template_directory_uri().'/js/main.js', array(), '', true );
 }
-add_action( 'wp_enqueue_scripts', 'bigcity_add_css_scripts' );
+add_action( 'wp_enqueue_scripts', 'chelseah_add_css_scripts' );
 
 
-/* woocommerce
--------------------------------------------------------------------*/
-include('includes/func_woocommerce.php');
+
 
 
 /* stuff for the client and defaults for wordpress
@@ -32,7 +30,7 @@ include('includes/func_post_types.php');
 //add_theme_support( 'post-thumbnails' );
 
 // add custom logo to login page
-function bigcity_login_logo_css() { ?>
+function chelseah_login_logo_css() { ?>
     <style type="text/css">
         body.login div#login h1 a {
             background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png);
@@ -48,11 +46,11 @@ function bigcity_login_logo_css() { ?>
 */
     </style>
 <?php }
-add_action( 'login_enqueue_scripts', 'bigcity_login_logo_css' );
+add_action( 'login_enqueue_scripts', 'chelseah_login_logo_css' );
 
 
 // add custom css or js to admin
-function bigcity_custom_admin_css() { ?>
+function chelseah_custom_admin_css() { ?>
     <style type="text/css">
 	    /* limit annoying category spacing description field */
         .edit-tags-php .description.column-description { white-space: nowrap; overflow: auto; }
@@ -70,12 +68,12 @@ function bigcity_custom_admin_css() { ?>
         .wp-block { max-width: 1100px; }
     </style>
 <?php }
-add_action( 'admin_head', 'bigcity_custom_admin_css' );
+add_action( 'admin_head', 'chelseah_custom_admin_css' );
 
 // add custom css to admin wysiwyg editor
 /*
-function bigcity_admin_wysiwyg_styles() {
+function chelseah_admin_wysiwyg_styles() {
     add_editor_style( 'css/wp.css' );
 }
-add_action( 'admin_init', 'bigcity_admin_wysiwyg_styles' );
+add_action( 'admin_init', 'chelseah_admin_wysiwyg_styles' );
 */

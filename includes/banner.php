@@ -14,7 +14,7 @@
 	}else{
 		// else its a page, single, etc
 		$acfID = get_the_id();
-		$banner = get_field('banner',$acfID);
+		//$banner = get_field('banner',$acfID);
 		//$banner = $banner['url']; // if ACF image field returns array
 		$title = get_the_title();
 	}

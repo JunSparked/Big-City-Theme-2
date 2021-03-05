@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+
+<?php 
+
+/*
+Template Name: Style Guide
+*/
+
+get_header(); ?>
 
 <?php include('includes/banner.php'); ?>
 
