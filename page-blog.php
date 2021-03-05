@@ -1,6 +1,9 @@
-<?php get_header(); ?>
+<?php 
+/*
+Template Name: Blog
+*/
+get_header(); ?>
 
-<?php include('includes/banner.php'); ?>
 
 <section class="basic-content py-40">
 	<div class="container">
